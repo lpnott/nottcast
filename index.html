@@ -138,42 +138,7 @@ function getRoomId() {
     return roomId;
   }
 };
-     var audioTrack = new WebAudioTrack();
-    var audioTrackFile = new WebAudioTrack();
-    var startButton = document.getElementById('btn-start-recording');
-    var stopButton = document.getElementById('btn-stop-recording');
-    var playRecButton = document.getElementById('btn-play-recording');
-    var playFileButton = document.getElementById('btn-play-file');
-    var playBothButton = document.getElementById('btn-play-both');
-    startButton.addEventListener("click", function() {
-        audioTrack.startRecording(function() {
-            stopButton.disabled = false;
-            startButton.disabled = true;
-        });
-    });
-    stopButton.addEventListener("click", function() {
-        audioTrack.stopRecording(function() {
-            startButton.disabled = false;
-            stopButton.disabled = true;
-            playRecButton.disabled = false;
-            playBothButton.disabled = false;
-        });
-    });
-    playRecButton.addEventListener("click", function() {
-        audioTrack.play();
-    });
-    playFileButton.addEventListener("click", function() {
-        audioTrackFile.loadUrl("audio-1.m4a")
-            .then(audioTrackFile.play)
-    });
-    playBothButton.addEventListener("click", function() {
-        var newTrack = new WebAudioTrack();
-        newTrack.loadUrl("audio-2.m4a")
-            .then(function() {
-                newTrack.appendAudioFromTrack(audioTrack);
-                newTrack.play();
-            })
-    });
+    
 
 </script> 
       
