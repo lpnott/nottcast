@@ -51,17 +51,7 @@ function AudioRecorder(config) {
             audio.src = url;
         });
     };
-            if (!config.autoWriteToDisk) {
-                return;
-            }
-
-            getDataURL(function(dataURL) {
-                var parameter = {};
-                parameter[config.type + 'Blob'] = dataURL;
-                DiskStorage.Store(parameter);
-            });
-        }
-  
+           
     function stopRecording(callback) {
 
         // stop recording
