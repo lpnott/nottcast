@@ -42,8 +42,7 @@ function AudioRecorder(config) {
 
     this.stop = function() {
         stopRecording(function(blob) {
-            autoWriteToDisk: true
-            startButton.disabled = false;
+                      startButton.disabled = false;
             stopButton.disabled = true;
 
             var url = URL.createObjectURL(blob);
@@ -51,7 +50,17 @@ function AudioRecorder(config) {
             audio.src = url;
         });
     };
+            if (!config.autoWriteToDisk) {
+                return;
+            }
 
+            getDataURL(function(dataURL) {
+                var parameter = {};
+                parameter[config.type + 'Blob'] = dataURL;
+                DiskStorage.Store(parameter);
+            });
+        }
+    }
     function stopRecording(callback) {
 
         // stop recording
