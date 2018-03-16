@@ -42,6 +42,7 @@ function AudioRecorder(config) {
 
     this.stop = function() {
         stopRecording(function(blob) {
+             autoWriteToDisk: true;
                       startButton.disabled = false;
             stopButton.disabled = true;
 
