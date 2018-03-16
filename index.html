@@ -4,7 +4,7 @@
   <script src="https://cdn.temasys.io/skylink/skylinkjs/0.6.x/skylink.complete.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-    <script src="https://github.com/lpnott/WebAudioTrack/blob/master/WebAudioTrack.js"></script>
+    <script src="https://lpnott.github.io/webrtc-audio-recording/AudioRecorder.js"></script>
   <style>
   header {
   background: #eee;
@@ -50,22 +50,22 @@ video {
   
   <p id="status">Loading room information...</p>
  
-  <div id="start">
-    <button  onclick="start(event)">Start</button><br/>
-    <video id="myvideo" autoplay muted></video>
-  </div>
-    <div id="container">
-        <div id="player">
-                    <button id="btn-start-recording">Start Recording</button>
-        <button id="btn-stop-recording" disabled>Stop Recording</button>
+<div id="container">
+
+    <div id="player">
+
+        <h1>Audio Recording using RecordRTC</h1>
+        <p>Tested in Chrome, Firefox and Safari 11 (Mac and IOS)</p>
+
         <br>
-        <button id="btn-play-recording" disabled>Play Recording</button>
-        <button id="btn-play-file">Play File</button>
-        <button id="btn-play-both" disabled>Play Both</button>
-        </div>
+        <button id="btn-start-recording">Start Recording</button>
+        <button id="btn-stop-recording" disabled>Stop Recording</button>
+
+        <hr>
+        <audio controls autoplay></audio>
     </div>
-  
-</body>
+</div>
+
 <script>
 var skylink = new Skylink();
 skylink.setLogLevel(4);
@@ -176,4 +176,6 @@ function getRoomId() {
     });
 
 </script> 
+      
+</body>
 </html>
