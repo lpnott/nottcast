@@ -98,7 +98,7 @@ function start(event) {
   
   skylink.joinRoom({
     audio: true,
-    video: true
+    video: false
   }, function (error, success) {
     if (error) {
       document.getElementById('status').innerHTML = 'Failed joining room.<br>' +
