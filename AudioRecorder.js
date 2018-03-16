@@ -42,8 +42,7 @@ function AudioRecorder(config) {
 
     this.stop = function() {
         stopRecording(function(blob) {
-            startButton.disabled = false;
-            stopButton.disabled = true;
+            
 
             var url = URL.createObjectURL(blob);
             var audio = document.querySelector("audio");
