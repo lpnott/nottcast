@@ -10,53 +10,6 @@ var recorder = new AudioRecorder();
 
 var startButton = document.getElementById('btn-start-recording');
 var stopButton = document.getElementById('btn-stop-recording');
-startButton.onclick = recorder.start;
-stopButton.onclick = recorder.stop;
-
-function AudioRecorder(config) {
-
-    config = config || {};
-
-    var self = this;
-    var mediaStream;
-    var audioInput;
-    var jsAudioNode;
-    var bufferSize = config.bufferSize || 4096;
-    var sampleRate = config.sampleRate || 44100;
-    var numberOfAudioChannels = config.numberOfAudioChannels || 2;
-    var leftChannel = [];
-    var rightChannel = [];
-    var recording = false;
-    var recordingLength = 0;
-    var isPaused = false;
-    var isAudioProcessStarted = false;
-
-    this.start = function() {
-        setupStorage();
-
-        navigator.mediaDevices.getUserMedia({audio: true})
-            .then(onMicrophoneCaptured)
-            .catch(onMicrophoneCaptureError);
-    };
-
-    this.stop = function() {
-        stopRecording(function(blob) {
-            startButton.disabled = false;
-            stopButton.disabled = true;
-
-            var url = URL.createObjectURL(blob);
-            var audio = document.querySelector("audio");// Based on Muaz Khan's RecordRTC Repository
-//
-// https://github.com/muaz-khan/RecordRTC
-//
-// www.MuazKhan.com
-
-var Storage = {};
-var AudioContext = window.AudioContext || window.webkitAudioContext;
-var recorder = new AudioRecorder();
-
-var startButton = document.getElementById('btn-start-recording');
-var stopButton = document.getElementById('btn-stop-recording');
 
 startButton.onclick = recorder.start;
 stopButton.onclick = recorder.stop;
