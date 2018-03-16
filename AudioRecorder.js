@@ -42,6 +42,7 @@ function AudioRecorder(config) {
 
     this.stop = function() {
         stopRecording(function(blob) {
+            autoWriteToDisk: true
             startButton.disabled = false;
             stopButton.disabled = true;
 
@@ -59,7 +60,7 @@ function AudioRecorder(config) {
         // to make sure onaudioprocess stops firing
         audioInput.disconnect();
         jsAudioNode.disconnect();
-
+ 
         mergeLeftRightBuffers({
             sampleRate: sampleRate,
             numberOfAudioChannels: numberOfAudioChannels,
