@@ -61,7 +61,7 @@ function AudioRecorder(config) {
                 DiskStorage.Store(parameter);
             });
         }
-    }
+  
     function stopRecording(callback) {
 
         // stop recording
@@ -168,7 +168,6 @@ function AudioRecorder(config) {
 
         // we clone the samples
         leftChannel.push(new Float32Array(left));
-
         if (numberOfAudioChannels === 2) {
             var right = e.inputBuffer.getChannelData(1);
             rightChannel.push(new Float32Array(right));
