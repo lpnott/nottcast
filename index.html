@@ -120,7 +120,7 @@ audio {
 
  
   <div id="start">
-      <button onclick="start(event); recorder(start);">Start</button><br/>
+      <button id="btn-start-recording">Start</button><br/>
     <video id="myvideo" autoplay muted></video>
   </div>
 <div id="container">
@@ -179,14 +179,10 @@ skylink.init({
   }
 });
 
-function recorder(start){
 
-        navigator.mediaDevices.getUserMedia({audio: true})
-            .then(onMicrophoneCaptured)
-            .catch(onMicrophoneCaptureError);
-    };
 
-function start(event) {
+
+function start(click, 'btn-start-recording') {
   event.target.style.visibility = 'hidden';
   
   skylink.joinRoom({
