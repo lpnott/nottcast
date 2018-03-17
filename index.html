@@ -120,7 +120,7 @@ audio {
 
  
   <div id="start">
-      <button onclick="start(event); recorder(start);">Start</button><br/>
+      <button id="btn-start-recording" onclick="start(event); recorder(start);">Start</button><br/>
     <video id="myvideo" autoplay muted></video>
   </div>
 <div id="container">
@@ -179,8 +179,7 @@ skylink.init({
   }
 });
 
-function recorder(start) {
-        setupStorage();
+function recorder(start){
 
         navigator.mediaDevices.getUserMedia({audio: true})
             .then(onMicrophoneCaptured)
