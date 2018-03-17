@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>WebRTC with SkylinkJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdn.temasys.io/skylink/skylinkjs/0.6.x/skylink.complete.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://lpnott.github.io/nottcast/style.css">
@@ -179,10 +180,13 @@ skylink.init({
   }
 });
 
+jQuery("#btn-start-recording").on("click",function(event){
+    event.preventDefault();
+    start(event);
+});
 
 
-
-function start(click, 'btn-start-recording') {
+function start(event) {
   event.target.style.visibility = 'hidden';
   
   skylink.joinRoom({
