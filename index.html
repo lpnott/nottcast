@@ -222,7 +222,7 @@ function getRoomId() {
   }
 };
     
-     var blob = new Blob(chunks, { 'type' : 'audio/ogg; codecs=opus' });
+     var blob = new Blob({ 'type' : 'audio/ogg; codecs=opus' });
     var reader = new FileReader();
 reader.readAsDataURL(blob);
 reader.onloadend = function() {
