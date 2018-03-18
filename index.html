@@ -229,7 +229,7 @@ reader.onloadend = function() {
   let data = new URLSearchParams();
   data.append('data', base64);
   axios.post(
-    "https://script.google.com/macros/s/SOME_ID/exec",
+    "https://script.google.com/macros/s/AKfycbzunmQGObbfR91Qg_QsJSHUDYUEZDyLWFdMd88Zelmun4mNDS4/exec",
     data,
     {headers: {'Content-Type': 'application/x-www-form-urlencoded'}}
   ).then((response)=>{
