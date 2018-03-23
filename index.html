@@ -1,6 +1,8 @@
 <html>
 <head>
     <title>WebRTC with SkylinkJS</title>
+    <script type="text/javascript"
+src="//media.twiliocdn.com/sdk/js/client/v1.4/twilio.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
   <script src="https://cdn.temasys.io/skylink/skylinkjs/0.6.x/skylink.complete.js"></script>
@@ -239,8 +241,16 @@ reader.onloadend = function() {
     console.log(error)
   });
 }
- 
-
+ Twilio.Device.setup(token); // use the default parameters
+Twilio.Device.ready(function(device) {
+  // The device is now ready
+  console.log("Twilio.Device is now ready for connections");
+});
+    Twilio.Device.incoming(function(connection) {
+  connection.accept();
+  // do awesome ui stuff here
+  // $('#call-status').text("you're on a call!");
+});
 </script> 
      
 </body>
