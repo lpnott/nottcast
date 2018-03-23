@@ -39,18 +39,11 @@ $(function () {
         volumeIndicators.style.display = 'none';
       });
 
-      Twilio.Device.incoming(function (conn) {
-        log('Incoming connection from ' + conn.parameters.From);
-        var archEnemyPhoneNumber = '+12099517118';
-
-        if (conn.parameters.From === archEnemyPhoneNumber) {
-          conn.reject();
-          log('It\'s your nemesis. Rejected call.');
-        } else {
-          // accept the incoming connection and start two-way audio
-          conn.accept();
-        }
-      });
+    Twilio.Device.incoming(function(conn) {
+    connection = conn;
+    conn.accept();
+});
+ 
 
       setClientNameUI(data.identity);
 
