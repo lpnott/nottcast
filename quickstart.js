@@ -6,7 +6,7 @@ $(function () {
   var volumeIndicators = document.getElementById('volume-indicators');
 
   log('Requesting Capability Token...');
-  $.getJSON('/token')
+  $.getJSON('https://sinopia-louse-6952.twil.io/token')
     .done(function (data) {
       log('Got a token.');
       console.log('Token: ' + data.token);
