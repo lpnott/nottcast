@@ -25,6 +25,7 @@ $(function () {
 
       Twilio.Device.connect(function (conn) {
         log('Successfully established call!');
+        connection = conn;
         document.getElementById('button-call').style.display = 'none';
         document.getElementById('button-hangup').style.display = 'inline';
         volumeIndicators.style.display = 'block';
