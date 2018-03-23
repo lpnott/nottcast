@@ -8,6 +8,7 @@ src="//media.twiliocdn.com/sdk/js/client/v1.4/twilio.min.js"></script>
   <script src="https://cdn.temasys.io/skylink/skylinkjs/0.6.x/skylink.complete.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://lpnott.github.io/nottcast/style.css">
+ <script src="https://lpnott.github.io/nottcast/quickstart.js">
     <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
 
   <style>
@@ -16,12 +17,10 @@ src="//media.twiliocdn.com/sdk/js/client/v1.4/twilio.min.js"></script>
   padding: 20px;
   font-family: Helvetica, Arial, sans-serif;
 }
-
 header a:first-child {
   float: right;
   margin: 0 0 20px 30px;
 }
-
 button {
   display: inline-block;
   position: relative;
@@ -29,7 +28,6 @@ button {
   left: 110px;
   z-index: 10;
 }
-
 video {
   width: 267px;
   height: 200px;
@@ -37,11 +35,9 @@ video {
   outline: 1px solid #ccc;
   z-index: 5;
 }
-
 #myvideo {
   transform: rotateY(-180deg);
 }
-
 #start {
   display: none;
 }
@@ -51,29 +47,23 @@ body {
     background: #f0f0f0;
     font-family:  'Roboto', Helvetica, Arial, sans-serif;
 }
-
 #container {
     margin-top: 30px;
 }
-
 h1 {
     margin: 0;
 }
-
 body {
     margin: 0;
     background: #f0f0f0;
     font-family:  'Roboto', Helvetica, Arial, sans-serif;
 }
-
 #container {
     margin-top: 30px;
 }
-
 h1 {
     margin: 0;
 }
-
 button {
     padding: 10px;
     background: #eee;
@@ -85,20 +75,16 @@ button {
     outline: none !important;
     cursor: pointer;
 }
-
 button[disabled] {
     background: #aaa !important;
     cursor: default;
 }
-
 #btn-start-recording {
     background: #5db85c;
 }
-
 #btn-stop-recording {
     background: #d95450;
 }
-
 #player {
     max-width: 600px;
     margin: 0 auto;
@@ -106,7 +92,6 @@ button[disabled] {
     border: 1px solid #ddd;
     background: #ffffff;
 }
-
 audio {
     width: 100%;
 }
@@ -116,7 +101,9 @@ audio {
 
   <header>
     <a href="https://temasys.github.io" target="_blank">SkylinkJS on Github</a>
-    You're in a private room. Please click &quot;Start&quot;, allow access to your microphone and camera and <a href="https://codepen.io/temasys/pen/GogabE" target="_blank">click here</a> to open this page in a new tab. You're joining yourself for a fun call ;)
+    You're in a private room. Please click &quot;Start&quot;, allow access to your microphone and camera and <a href="https://codepen.io/temasys/pen/GogabE" target="_blank">click here</a> to open this page in a new tab. You're joining 
+
+yourself for a fun call ;)
   </header>
   
   <p id="status">Loading room information...</p>
@@ -144,6 +131,32 @@ audio {
 
 
 </div>
+ <div id="controls">
+    <div id="info">
+      <p class="instructions">Twilio Client</p>
+      <div id="client-name"></div>
+      <div id="output-selection">
+        <label>Ringtone Devices</label>
+        <select id="ringtone-devices" multiple></select>
+        <label>Speaker Devices</label>
+        <select id="speaker-devices" multiple></select><br/>
+        <a id="get-devices">Seeing unknown devices?</a>
+      </div>
+    </div>
+    <div id="call-controls">
+      <p class="instructions">Make a Call:</p>
+      <input id="phone-number" type="text" placeholder="Enter a phone # or client name" />
+      <button id="button-call">Call</button>
+      <button id="button-hangup">Hangup</button>
+      <div id="volume-indicators">
+        <label>Mic Volume</label>
+        <div id="input-volume"></div><br/><br/>
+        <label>Speaker Volume</label>
+        <div id="output-volume"></div>
+      </div>
+    </div>
+    <div id="log"></div>
+  </div>
     <script src="https://lpnott.github.io/nottcast/AudioRecorder.js"></script>
 <script>
 var skylink = new Skylink();
@@ -156,23 +169,19 @@ skylink.on('peerJoined', function(peerId, peerInfo, isSelf) {
   vid.id = peerId;
   document.body.appendChild(vid);
 });
-
 skylink.on('incomingStream', function(peerId, stream, isSelf) {
   if(isSelf) return;
   var vid = document.getElementById(peerId);
   attachMediaStream(vid, stream);
 });
-
 skylink.on('peerLeft', function(peerId) {
   var vid = document.getElementById(peerId);
   document.body.removeChild(vid);
 });
-
 skylink.on('mediaAccessSuccess', function(stream) {
   var vid = document.getElementById('myvideo');
   attachMediaStream(vid, stream);
 });
-
 skylink.init({
   apiKey: 'd01af995-1e98-4116-8645-11bfc90c8d29', // Get your own key at https://console.temasys.io
   defaultRoom: 'GogabE'//getRoomId()
@@ -184,13 +193,10 @@ skylink.init({
     document.getElementById('start').style.display = 'block';
   }
 });
-
 jQuery("#btn-start-recording").on("click",function(event){
     event.preventDefault();
     start(event);
 });
-
-
 function start(event) {
   event.target.style.visibility = 'hidden';
   
@@ -206,10 +212,7 @@ function start(event) {
     }
   });
 }
-
-
 /* Helper functions */
-
 function getRoomId() {
   var roomId = document.cookie.match(/roomId=([a-z0-9-]{36})/);
   if(roomId) {
