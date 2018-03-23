@@ -157,5 +157,8 @@ function log(message) {
   logDiv.innerHTML += '<p>&gt;&nbsp;' + message + '</p>';
   logDiv.scrollTop = logDiv.scrollHeight;
 }
-
-
+function setClientNameUI(clientName) {
+  var div = document.getElementById('client-name');
+  div.innerHTML = 'Your client name: <strong>' + clientName +
+    '</strong>';
+}
