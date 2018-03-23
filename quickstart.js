@@ -160,7 +160,7 @@ function log(message) {
 
 // Set the client name in the UI
 function setClientNameUI(clientName) {
-  var div = document.getElementById('client-name');
+  var div = document.getElementById('joey');
   div.innerHTML = 'Your client name: <strong>' + clientName +
     '</strong>';
 }
