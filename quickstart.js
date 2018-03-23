@@ -23,16 +23,6 @@ $(function () {
         log('Twilio.Device Error: ' + error.message);
       });
 
-from twilio.jwt.client import ClientCapabilityToken
-
-account_sid = 'AC1525a7524cf7e9e2f69d732e2a85caaf'
-auth_token = 'secret'
-
-capability = ClientCapabilityToken(account_sid, auth_token)
-capability.allow_client_incoming('joey')
-    
-print(capability.to_jwt())
-    
       Twilio.Device.connect(function (conn) {
         log('Successfully established call!');
         document.getElementById('button-call').style.display = 'none';
@@ -168,9 +158,4 @@ function log(message) {
   logDiv.scrollTop = logDiv.scrollHeight;
 }
 
-// Set the client name in the UI
-function setClientNameUI(clientName) {
-  var div = document.getElementById('joey');
-  div.innerHTML = 'Your client name: <strong>' + clientName +
-    '</strong>';
-}
+
