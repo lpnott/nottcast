@@ -64,7 +64,7 @@ video {
   height: 200px;
   border: 1px solid white;
   outline: 1px solid #ccc;
-  z-index: 5;
+
 }
 #myvideo {
   transform: rotateY(-180deg);
