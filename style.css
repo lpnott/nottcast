@@ -1,6 +1,6 @@
 body {
     margin: 0;
-color: #ffffff;
+background: #ffffff;
     font-family:  'Roboto', Helvetica, Arial, sans-serif;
 }
 
@@ -81,9 +81,7 @@ html, body {
 	height: 100%;
 }
 
-body {
-	background: #101010;
-}
+
 
 .loader {
 	display: flex;
