@@ -43,7 +43,7 @@ $(function () {
 
     Twilio.Device.incoming(function(conn) {
    connection = conn;
-  connection.accept();
+  conn.accept();
   log('Incoming call accepted!');
 });
 
