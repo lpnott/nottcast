@@ -48,3 +48,32 @@ button[disabled] {
 audio {
     width: 100%;
 }
+
+  header {
+  background: #eee;
+  padding: 20px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+header a:first-child {
+  float: right;
+  margin: 0 0 20px 30px;
+}
+
+video {
+  width: 267px;
+  height: 200px;
+  border: 1px solid white;
+  outline: 1px solid #ccc;
+  z-index: 5;
+}
+#myvideo {
+  transform: rotateY(-180deg);
+}
+#start {
+  display: none;
+}
+    
+h1 {
+    margin: 0;
+}
+
