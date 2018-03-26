@@ -42,10 +42,11 @@ $(function () {
       });
 
     Twilio.Device.incoming(function(conn) {
-        log('Incoming call accepted!');
-    connection = conn;
-    conn.accept();
+   connection = conn;
+  connection.accept();
+  log('Incoming call accepted!');
 });
+
  
 
       setClientNameUI(data.identity);
