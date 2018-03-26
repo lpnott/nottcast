@@ -4,6 +4,16 @@ $(function () {
   var outputVolumeBar = document.getElementById('output-volume');
   var inputVolumeBar = document.getElementById('input-volume');
   var volumeIndicators = document.getElementById('volume-indicators');
+  
+  from twilio.jwt.client import ClientCapabilityToken
+
+account_sid = 'AC1525a7524cf7e9e2f69d732e2a85caaf'
+auth_token = '15a4d936d26294c039ae8466bf971e03'
+application_sid = 'AP8425b1920a138dc1e81320b38d99a980'
+
+capability = ClientCapabilityToken(account_sid, auth_token)
+capability.allow_client_outgoing(application_sid)
+print(capability.to_jwt())
 
   log('Requesting Capability Token...');
   $.getJSON('https://sinopia-louse-6952.twil.io/token')
@@ -22,6 +32,8 @@ $(function () {
       Twilio.Device.error(function (error) {
         log('Twilio.Device Error: ' + error.message);
       });
+    
+
 
       Twilio.Device.connect(function (conn) {
         log('Successfully established call!');
